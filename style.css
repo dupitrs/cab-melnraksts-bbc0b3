@@ -19,9 +19,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--color-focus);outlin
 /* galvene: sākumā pilnā platumā virs bildes, ritinot saraujas par peldošo fasetes joslu */
 @property --bar-cut{syntax:'<length>';inherits:true;initial-value:0px}
 .mast{position:sticky;top:0;z-index:50;height:0;padding:0;transition:top 0.4s var(--ease-out),padding 0.4s var(--ease-out)}
-.mast .wrap{--bar-cut:0px;position:relative;max-width:100%;background:color-mix(in oklab, var(--color-dark) 55%, transparent);backdrop-filter:blur(7px);border:1px solid transparent;clip-path:polygon(var(--bar-cut) 0,100% 0,100% calc(100% - var(--bar-cut)),calc(100% - var(--bar-cut)) 100%,0 100%,0 var(--bar-cut));transition:max-width 0.4s var(--ease-out),background-color 0.4s var(--ease-out),border-color 0.4s var(--ease-out),--bar-cut 0.4s var(--ease-out)}
+.mast .wrap{--bar-cut:0px;position:relative;max-width:100%;background:color-mix(in oklab, var(--color-dark) 55%, transparent);border:1px solid transparent;clip-path:polygon(var(--bar-cut) 0,100% 0,100% calc(100% - var(--bar-cut)),calc(100% - var(--bar-cut)) 100%,0 100%,0 var(--bar-cut));transition:max-width 0.4s var(--ease-out),background-color 0.4s var(--ease-out),border-color 0.4s var(--ease-out),--bar-cut 0.4s var(--ease-out)}
 .mast.is-scrolled{top:0.6rem;padding:0 var(--space-sm)}
-.mast.is-scrolled .wrap{--bar-cut:16px;max-width:1150px;background:color-mix(in oklab, var(--color-dark) 90%, transparent);backdrop-filter:blur(14px);border-color:oklch(94% 0.008 75 / 0.12)}
+.mast.is-scrolled .wrap{--bar-cut:16px;max-width:1150px;background:var(--color-dark);border-color:oklch(94% 0.008 75 / 0.12)}
 .mast__in{display:flex;align-items:center;justify-content:space-between;gap:var(--space-md);padding-block:var(--space-sm);transition:padding 0.4s var(--ease-out)}
 .mast.is-scrolled .mast__in{padding-block:0.45rem}
 .brand{display:flex;align-items:center;gap:var(--space-xs);text-decoration:none}
