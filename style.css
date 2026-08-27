@@ -18,8 +18,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--color-focus);outlin
 
 /* galvene: sākumā pilnā platumā virs bildes, ritinot saraujas par peldošo fasetes joslu */
 @property --bar-cut{syntax:'<length>';inherits:true;initial-value:0px}
-.mast{position:sticky;top:0;z-index:50;height:0;padding:0;transition:top 0.4s var(--ease-out),padding 0.4s var(--ease-out)}
-.mast .wrap{--bar-cut:0px;position:relative;max-width:100%;background:color-mix(in oklab, var(--color-dark) 55%, transparent);border:1px solid transparent;clip-path:polygon(var(--bar-cut) 0,100% 0,100% calc(100% - var(--bar-cut)),calc(100% - var(--bar-cut)) 100%,0 100%,0 var(--bar-cut));transition:max-width 0.4s var(--ease-out),background-color 0.4s var(--ease-out),border-color 0.4s var(--ease-out),--bar-cut 0.4s var(--ease-out)}
+.mast{position:sticky;top:0;z-index:50;height:0;padding:0;transition:top 0.4s var(--ease-out),padding 0.4s var(--ease-out),transform 0.35s var(--ease-out)}
+.mast.is-hidden{transform:translateY(-130%)}
+.mast .wrap{--bar-cut:0px;position:relative;max-width:100%;background:var(--color-dark);border:1px solid transparent;clip-path:polygon(var(--bar-cut) 0,100% 0,100% calc(100% - var(--bar-cut)),calc(100% - var(--bar-cut)) 100%,0 100%,0 var(--bar-cut));transition:max-width 0.4s var(--ease-out),background-color 0.4s var(--ease-out),border-color 0.4s var(--ease-out),--bar-cut 0.4s var(--ease-out)}
+body:has(.hero) .mast:not(.is-scrolled) .wrap{background:color-mix(in oklab, var(--color-dark) 55%, transparent)}
 .mast.is-scrolled{top:0.6rem;padding:0 var(--space-sm)}
 .mast.is-scrolled .wrap{--bar-cut:16px;max-width:1150px;background:var(--color-dark);border-color:oklch(94% 0.008 75 / 0.12)}
 .mast__in{display:flex;align-items:center;justify-content:space-between;gap:var(--space-md);padding-block:var(--space-sm);transition:padding 0.4s var(--ease-out)}
@@ -40,12 +42,25 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--color-focus);outlin
 .mast__prog{position:absolute;left:0;bottom:0;height:2px;width:0;background:linear-gradient(90deg,var(--color-accent),var(--color-accent-hi));pointer-events:none}
 .mast__cta{font-size:0.85rem;font-weight:600;text-decoration:none;color:oklch(98% 0.005 205);background:var(--color-accent);padding:0.55rem 1.2rem;white-space:nowrap;clip-path:polygon(9px 0,100% 0,100% calc(100% - 9px),calc(100% - 9px) 100%,0 100%,0 9px);transition:background-color var(--dur-micro) var(--ease-out),transform var(--dur-micro) var(--ease-out)}
 .mast__cta:hover{background:var(--color-accent-ink);transform:translateY(-1px)}
-@media(max-width:1080px){.mast__cta{display:none}}
+@media(max-width:1080px) and (min-width:901px){.mast__cta{display:none}}
+.mast__burger{display:none;width:44px;height:44px;border:none;background:transparent;cursor:pointer;position:relative;z-index:70;flex:none}
+.mast__burger span{display:block;width:22px;height:2px;background:var(--color-ink-dark);margin:5px auto;transition:transform 0.3s var(--ease-out),opacity 0.2s var(--ease-out)}
+.mast.menu-open .mast__burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.mast.menu-open .mast__burger span:nth-child(2){opacity:0}
+.mast.menu-open .mast__burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+body.no-scroll{overflow:hidden}
 @media(max-width:900px){
   .mast.is-scrolled{top:0.4rem;padding:0 var(--space-2xs)}
-  .mast__in{flex-wrap:wrap;padding-block:var(--space-2xs)}
-  .mast__right{width:100%}
-  .mast__nav{gap:var(--space-sm);width:100%;overflow-x:auto;padding-bottom:0.2rem;flex-wrap:nowrap;scrollbar-width:none}
+  .mast__burger{display:block}
+  .mast.menu-open .wrap{clip-path:none}
+  .mast__right{position:fixed;inset:0;z-index:65;background:color-mix(in oklab, var(--color-dark) 97%, black);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:5rem var(--space-lg) var(--space-2xl);gap:var(--space-xl);transform:translateX(102%);transition:transform 0.35s var(--ease-out);visibility:hidden}
+  .mast.menu-open .mast__right{transform:none;visibility:visible}
+  .mast__nav{flex-direction:column;align-items:flex-start;gap:var(--space-md)}
+  .mast__nav a{font-family:var(--font-display);font-size:1.5rem;font-weight:600;color:var(--color-ink-dark);padding-block:0.2rem}
+  .mast__nav a[aria-current="page"]{color:var(--color-accent-hi)}
+  .mast__ind{display:none}
+  .mast__nav.has-ind a[aria-current="page"]::after{content:none}
+  .mast__cta{display:inline-block;font-size:1rem;padding:0.8rem 1.8rem}
 }
 
 /* hero: pilna platuma kaimiņu foto ar devīzi (sākums) */

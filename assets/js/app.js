@@ -8,12 +8,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const mast = document.querySelector('.mast');
   if (mast) {
     const prog = mast.querySelector('.mast__prog');
+    const narrow = matchMedia('(max-width: 900px)');
+    let lastY = scrollY;
     let ticking = false;
     const onScroll = () => {
       if (ticking) return;
       ticking = true;
       requestAnimationFrame(() => {
         mast.classList.toggle('is-scrolled', scrollY > 30);
+        if (narrow.matches && !mast.classList.contains('menu-open')) {
+          const down = scrollY > lastY + 4;
+          const up = scrollY < lastY - 4;
+          if (down && scrollY > 260) mast.classList.add('is-hidden');
+          else if (up || scrollY <= 260) mast.classList.remove('is-hidden');
+        } else {
+          mast.classList.remove('is-hidden');
+        }
+        lastY = scrollY;
         if (prog) {
           const max = document.documentElement.scrollHeight - innerHeight;
           prog.style.width = (max > 0 ? (scrollY / max) * 100 : 0) + '%';
@@ -23,6 +34,20 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     addEventListener('scroll', onScroll, { passive: true });
     onScroll();
+
+    const burger = mast.querySelector('.mast__burger');
+    if (burger) {
+      const toggle = (open) => {
+        mast.classList.toggle('menu-open', open);
+        document.body.classList.toggle('no-scroll', open);
+        burger.setAttribute('aria-expanded', open);
+        if (open) mast.classList.remove('is-hidden');
+      };
+      burger.addEventListener('click', () => toggle(!mast.classList.contains('menu-open')));
+      mast.querySelectorAll('.mast__nav a, .mast__cta').forEach((a) =>
+        a.addEventListener('click', () => toggle(false)));
+      addEventListener('keydown', (e) => { if (e.key === 'Escape') toggle(false); });
+    }
 
     const nav = mast.querySelector('.mast__nav');
     const ind = mast.querySelector('.mast__ind');

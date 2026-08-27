@@ -25,7 +25,7 @@
 .newsband__grid{display:grid;grid-template-columns:1.2fr auto;gap:var(--space-lg);align-items:center}
 .newsband h2{font-size:var(--text-2xl);margin-bottom:var(--space-2xs)}
 .newsband p{max-width:36rem;font-weight:300}
-@media(max-width:700px){.newsband__grid{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:700px){.newsband__grid{grid-template-columns:minmax(0,1fr)}.newsband .btn{justify-self:start}}
 </style>
 </head>
 <body>
@@ -38,6 +38,9 @@
       <img src="assets/logo-rozete.png" alt="Čiekurkalna attīstības biedrības logo" width="30" height="28" />
       <span class="brand__t">ČIE·KUR·KALNS<small>attīstības biedrība</small></span>
     </a>
+    <button class="mast__burger" aria-label="Izvēlne" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
     <div class="mast__right">
     <nav class="mast__nav" aria-label="Vietnes sadaļas">
       <span class="mast__ind" aria-hidden="true"></span>
