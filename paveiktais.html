@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Paveiktais. Čiekurkalna attīstības biedrība</title>
+<meta name="description" content="Ūdenstornis, piknika pļava, skvērs, suņu laukums, talkas un sporta svētki: ko Čiekurkalna apkaime desmit gados ir izdarījusi pati. Dizaina melnraksts." />
+<link rel="icon" href="assets/logo-rozete.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700&family=Roboto:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="tokens.css" />
+<link rel="stylesheet" href="style.css" />
+<style>
+/* Hallmark · macrostructure: Feature + gallery slider + archive · page: paveiktais · design-system: design.md · designed-as-app */
+.story{padding-block:var(--space-2xl)}
+.story__grid{display:grid;grid-template-columns:0.82fr 1.18fr;gap:var(--space-2xl);align-items:center}
+.story__meta{font-size:var(--text-sm);color:var(--color-accent-hi);margin-bottom:var(--space-md)}
+.story h2{font-size:clamp(1.9rem,3.6vw,2.7rem);margin-bottom:var(--space-2xs)}
+.story p{margin-bottom:var(--space-sm);max-width:34rem;font-weight:300}
+.story p:last-of-type{margin-bottom:0}
+.story .facet{--cut:34px}
+@media(max-width:860px){.story__grid{grid-template-columns:minmax(0,1fr);gap:var(--space-lg)}.story__figure{max-width:380px;order:2}}
+.works{padding-block:var(--space-2xl) var(--space-xl)}
+.works h2{font-size:var(--text-2xl);margin-bottom:var(--space-lg)}
+.archsec{padding-block:var(--space-2xl)}
+.archsec h2{font-size:var(--text-2xl);margin-bottom:var(--space-lg)}
+</style>
+</head>
+<body>
+
+<div class="draftbar">Melnraksts. Dizaina paraugs, ko sagatavoja rast studija.</div>
+
+<header class="mast">
+  <div class="wrap mast__in">
+    <a class="brand" href="index.html">
+      <img src="assets/logo-rozete.png" alt="Čiekurkalna attīstības biedrības logo" width="30" height="28" />
+      <span class="brand__t">ČIE·KUR·KALNS<small>attīstības biedrība</small></span>
+    </a>
+    <div class="mast__right">
+    <nav class="mast__nav" aria-label="Vietnes sadaļas">
+      <a href="index.html">Sākums</a>
+      <a href="par-ciekurkalnu.html">Par Čiekurkalnu</a>
+      <a href="cab.html">ČAB</a>
+      <a href="paveiktais.html" aria-current="page">Paveiktais</a>
+      <a href="jaunumi.html">Jaunumi</a>
+      <a href="brivpratigie.html">Nāc brīvprātīgajos!</a>
+    </nav>
+    <a class="mast__cta" href="cab.html#ziedot">Ziedot</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section class="phead">
+  <div class="wrap">
+    <h1 data-intro>Ko apkaime desmit gados ir izdarījusi pati</h1>
+    <p data-intro>Kopā saliktie darbi un finansējums rāda, ka desmit gados apkaimei esam piesaistījuši aptuveni miljonu eiro.</p>
+  </div>
+</section>
+
+<section class="darksec story">
+  <div class="wrap story__grid">
+    <figure class="story__figure" data-rise>
+      <div class="facet"><img src="assets/udenstornis-nakts.webp" alt="Svētkos izgaismotais Čiekurkalna ūdenstornis naktī" width="900" height="1200" loading="lazy" /></div>
+      <figcaption class="figcap">Valsts svētkos izgaismotais tornis, 2025. gada 18. novembris</figcaption>
+    </figure>
+    <div data-rise>
+      <h2>Ūdenstornis atgriežas mājās</h2>
+      <p class="story__meta">Gaujas iela 21 · Rīgas domes lēmums 2026. gada 20. maijā</p>
+      <p>Rīgas dome 2026. gada pavasarī nodeva Čiekurkalna ūdenstorni bezatlīdzības lietošanā biedrībai. Tas ir liels uzticības apliecinājums kopienas darbam, neatlaidībai un vīzijai par torņa nākotni.</p>
+      <p>Mūsu mērķis ir saglabāt šo unikālo industriālā mantojuma objektu un pakāpeniski attīstīt to par atvērtu, sabiedrībai pieejamu vietu, kur satiekas kultūra, vēsture, izglītība un apkaimes cilvēki.</p>
+      <div class="btnrow" style="margin-top:var(--space-md)">
+        <a class="btn btn--accent" href="cab.html#ziedot">Atbalstīt torni</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="works">
+  <div class="wrap">
+    <h2 data-rise>Apkaimes projekti</h2>
+    <div class="slider works-grid" id="slider">
+      <div class="stage" id="stage">
+        <article class="card">
+          <div class="card__img"><img src="assets/piknika-plava.webp" alt="Soli un piknika galdi Ķīšezera krastā" loading="lazy" /></div>
+          <div class="card__body">
+            <p class="card__year">2025</p>
+            <h3>Ķīšezera piknika pļava</h3>
+            <p>Nekoptā ezera krasta vietā tagad ir soli, piknika galdi, zviļņi, bērnu laukums un velo novietne Ezermalas ielā.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card__img"><img src="assets/skvers-komanda.webp" alt="Biedrības ļaudis jaunajā Čiekurkalna skvērā" loading="lazy" /></div>
+          <div class="card__body">
+            <p class="card__year">2024</p>
+            <h3>Jaunais skvērs</h3>
+            <p>Skvērs starp Čiekurkalna 4. un 5. šķērslīniju ar celiņiem, apgaismojumu un bērnu laukumu. Ideja lolota kopš 2017. gada.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card__img"><img src="assets/sunu-laukums.webp" alt="Čiekurkalna suņu laukuma atklāšana" loading="lazy" /></div>
+          <div class="card__body">
+            <p class="card__year">2025</p>
+            <h3>Suņu laukums</h3>
+            <p>Atklāts pie Čiekurkalna 1. līnijas un 8. šķērslīnijas krustojuma. Biedrība laukumu izgaismoja ar astoņiem prožektoriem.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card__img"><img src="assets/sporta-svetki.webp" alt="Basketbola spēle Čiekurkalna sporta svētkos" loading="lazy" /></div>
+          <div class="card__body">
+            <p class="card__year">Katru gadu</p>
+            <h3>Sporta svētki</h3>
+            <p>Basketbols, pļavas futbols, virves vilkšana un mājražotāju tirdziņš Čiekurkalna krustcelēs.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card__img"><img src="assets/talka.webp" alt="Kaimiņi talkā stāda koku" loading="lazy" /></div>
+          <div class="card__body">
+            <p class="card__year">Pavasarī un rudenī</p>
+            <h3>Talkas</h3>
+            <p>Kopā ar kaimiņiem sakopjam apkaimi un stādām kokus. Talkas ir vieta, kur iepazīties ar biedrību dzīvē.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card__img"><img src="assets/futbola-laukums.webp" alt="Komandas Čiekurkalna futbola laukuma atklāšanā" loading="lazy" /></div>
+          <div class="card__body">
+            <p class="card__year">Apkaimes laukumi</p>
+            <h3>Futbola laukums</h3>
+            <p>Atklāšanas spēle jaunajā apkaimes futbola laukumā, kur satiekas lieli un mazi čiekurkalnieši.</p>
+          </div>
+        </article>
+      </div>
+      <div class="slider__ctrl">
+        <button class="sbtn" id="prev" aria-label="Iepriekšējais darbs">←</button>
+        <span class="scount" id="scount">1 / 6</span>
+        <button class="sbtn" id="next" aria-label="Nākamais darbs">→</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="archsec" style="background:var(--color-paper-2);border-block:1px solid var(--color-rule)">
+  <div class="wrap">
+    <h2 data-rise>Vēl no biedrības arhīva</h2>
+    <div class="arch" data-rise>
+      <div class="arch__row"><span class="arch__year">2024</span><p><b>Izgaismotā 5. šķērslīnija.</b> Ar čiekurkalniešu ziedojumiem izgaismota iela pie ieejas jaunajā skvērā.</p></div>
+      <div class="arch__row"><span class="arch__year">2020–2022</span><p><b>Bibliotēkas dārzs.</b> Kopā ar Čiekurkalna filiālbibliotēku un brīvprātīgajiem izveidots dārzs, piesaistot aptuveni 20 000 EUR.</p></div>
+      <div class="arch__row"><span class="arch__year">Kopš 2019</span><p><b>Līdzdalības budžeta projekti.</b> Bērnu laukums Saulkrastu ielā, piknika pļava un citi iedzīvotāju iebalsoti projekti.</p></div>
+    </div>
+    <p class="ph" style="margin-top:var(--space-lg);max-width:44rem">Šeit var pievienot pārējos darbus no biedrības arhīva: pastkastīšu projektu, Ziemassvētku tirdziņu un citus.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <img src="assets/logo-full.png" alt="Čiekurkalna attīstības biedrības logo" width="88" height="157" loading="lazy" />
+    <span>Čiekurkalna attīstības biedrība · sabiedriskā labuma organizācija</span>
+    <span>Melnraksts · rast studija</span>
+  </div>
+</footer>
+
+<script src="assets/js/gsap.min.js" defer></script>
+<script src="assets/js/ScrollTrigger.min.js" defer></script>
+<script src="assets/js/app.js" defer></script>
+
+</body>
+</html>

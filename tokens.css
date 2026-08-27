@@ -1,0 +1,56 @@
+/* Hallmark · tokens — Čiekurkalna attīstības biedrība (studied-DNA: klienta logo + ciekurkalns.lv) */
+:root {
+  /* krāsas: silti brūnie neitrāļi no logo čiekura, ciāna akcents no logo */
+  --color-paper:      oklch(96.5% 0.008 75);
+  --color-paper-2:    oklch(93.5% 0.012 75);
+  --color-card:       oklch(98%   0.005 75);
+  --color-rule:       oklch(85%   0.012 75);
+  --color-rule-dark:  oklch(34%   0.015 55);
+  --color-muted:      oklch(45%   0.02  60);
+  --color-ink:        oklch(24%   0.02  55);
+  --color-dark:       oklch(21%   0.015 55);
+  --color-dark-2:     oklch(26%   0.018 55);
+  --color-ink-dark:   oklch(94%   0.008 75);
+  --color-muted-dark: oklch(78%   0.012 75);
+  --color-taupe:      oklch(60%   0.03  55);
+  --color-accent:     oklch(58%   0.115 205);
+  --color-accent-ink: oklch(42%   0.09  205);
+  --color-accent-hi:  oklch(72%   0.10  205);
+  --color-band:       oklch(33%   0.06  210);
+  --color-focus:      oklch(58%   0.115 205);
+  --color-ph:         oklch(55%   0.015 60);
+
+  /* fonti: klienta lapas DNS */
+  --font-display: 'Roboto Slab', Georgia, serif;
+  --font-body:    'Roboto', 'Segoe UI', Arial, sans-serif;
+
+  /* atstarpes: 4 pt skala */
+  --space-2xs: 0.5rem;
+  --space-xs:  0.75rem;
+  --space-sm:  1rem;
+  --space-md:  1.5rem;
+  --space-lg:  2rem;
+  --space-xl:  3rem;
+  --space-2xl: 4.5rem;
+  --space-3xl: 6.5rem;
+
+  /* teksts */
+  --text-sm: 0.875rem;
+  --text-md: 1.03rem;
+  --text-lg: 1.2rem;
+  --text-xl: 1.5rem;
+  --text-2xl: clamp(1.8rem, 3.4vw, 2.5rem);
+  --text-display: clamp(2.4rem, 5.2vw, 3.8rem);
+
+  /* kustība */
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in:     cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms;
+  --dur-short: 220ms;
+  --dur-long:  420ms;
+
+  /* forma: fasetes no logo ģeometrijas */
+  --cut: 22px;
+  --cut-sm: 12px;
+}
