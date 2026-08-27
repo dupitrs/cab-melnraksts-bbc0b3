@@ -4,6 +4,47 @@ document.addEventListener('DOMContentLoaded', () => {
   const rm = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const hasGsap = typeof gsap !== 'undefined';
 
+  /* ── galvene: sarukšana, ritināšanas progress, slīdošais indikators ── */
+  const mast = document.querySelector('.mast');
+  if (mast) {
+    const prog = mast.querySelector('.mast__prog');
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        mast.classList.toggle('is-scrolled', scrollY > 30);
+        if (prog) {
+          const max = document.documentElement.scrollHeight - innerHeight;
+          prog.style.width = (max > 0 ? (scrollY / max) * 100 : 0) + '%';
+        }
+        ticking = false;
+      });
+    };
+    addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    const nav = mast.querySelector('.mast__nav');
+    const ind = mast.querySelector('.mast__ind');
+    const active = nav ? nav.querySelector('a[aria-current="page"]') : null;
+    if (nav && ind && active) {
+      nav.classList.add('has-ind');
+      if (!rm) ind.style.transition = 'left 0.3s cubic-bezier(0.16,1,0.3,1), width 0.3s cubic-bezier(0.16,1,0.3,1)';
+      const moveTo = (a) => {
+        ind.style.left = a.offsetLeft + 'px';
+        ind.style.width = a.offsetWidth + 'px';
+      };
+      moveTo(active);
+      nav.querySelectorAll('a').forEach((a) => {
+        a.addEventListener('mouseenter', () => moveTo(a));
+        a.addEventListener('focus', () => moveTo(a));
+      });
+      nav.addEventListener('mouseleave', () => moveTo(active));
+      addEventListener('resize', () => moveTo(active));
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => moveTo(active));
+    }
+  }
+
   /* ── 3D slaideris ── */
   const slider = document.getElementById('slider');
   const cards = slider ? [...slider.querySelectorAll('.card')] : [];

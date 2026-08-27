@@ -16,26 +16,30 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--color-focus);outlin
 /* melnraksta josla */
 .draftbar{background:var(--color-band);color:var(--color-ink-dark);text-align:center;font-size:0.8rem;padding:var(--space-2xs) var(--space-sm);letter-spacing:0.02em;position:relative;z-index:60}
 
-/* galvene: tumšā masthead ar animētiem pasvītrojumiem un Ziedot pogu */
-.mast{position:sticky;top:0;z-index:50;background:color-mix(in oklab, var(--color-dark) 94%, transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--color-rule-dark)}
-.mast__in{display:flex;align-items:center;justify-content:space-between;gap:var(--space-md);padding-block:var(--space-xs)}
+/* galvene: peldoša fasetes josla ar slīdošo indikatoru un ritināšanas progresu */
+.mast{position:sticky;top:0.6rem;z-index:50;height:0;padding:0 var(--space-sm)}
+.mast .wrap{position:relative;background:color-mix(in oklab, var(--color-dark) 90%, transparent);backdrop-filter:blur(14px);border:1px solid oklch(94% 0.008 75 / 0.12);clip-path:polygon(16px 0,100% 0,100% calc(100% - 16px),calc(100% - 16px) 100%,0 100%,0 16px)}
+.mast__in{display:flex;align-items:center;justify-content:space-between;gap:var(--space-md);padding-block:var(--space-xs);transition:padding var(--dur-short) var(--ease-out)}
+.mast.is-scrolled .mast__in{padding-block:0.45rem}
 .brand{display:flex;align-items:center;gap:var(--space-xs);text-decoration:none}
-.brand img{width:34px;height:auto;transition:transform var(--dur-short) var(--ease-out)}
-.brand:hover img{transform:rotate(18deg)}
+.brand img{width:34px;height:auto;transition:transform 0.5s var(--ease-out)}
+.brand:hover img{transform:rotate(72deg)}
 .brand__t{font-family:var(--font-display);font-weight:700;font-size:1.05rem;line-height:1.15;letter-spacing:0.06em;color:var(--color-ink-dark)}
 .brand__t small{display:block;font-family:var(--font-body);font-weight:400;font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-muted-dark)}
 .mast__right{display:flex;align-items:center;gap:var(--space-md)}
-.mast__nav{display:flex;gap:var(--space-md);flex-wrap:wrap}
-.mast__nav a{position:relative;text-decoration:none;font-size:0.9rem;font-weight:500;color:var(--color-muted-dark);white-space:nowrap;padding-block:0.35rem;transition:color var(--dur-micro) var(--ease-out)}
-.mast__nav a::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--color-accent-hi);transform:scaleX(0);transform-origin:left;transition:transform var(--dur-short) var(--ease-out)}
+.mast__nav{position:relative;display:flex;gap:var(--space-md);flex-wrap:wrap}
+.mast__nav a{position:relative;text-decoration:none;font-size:0.9rem;font-weight:500;color:var(--color-muted-dark);white-space:nowrap;padding-block:0.4rem;transition:color var(--dur-micro) var(--ease-out)}
 .mast__nav a:hover{color:var(--color-ink-dark)}
-.mast__nav a:hover::after{transform:scaleX(1)}
 .mast__nav a[aria-current="page"]{color:var(--color-ink-dark)}
-.mast__nav a[aria-current="page"]::after{transform:scaleX(1)}
-.mast__cta{font-size:0.85rem;font-weight:600;text-decoration:none;color:oklch(98% 0.005 205);background:var(--color-accent);padding:0.55rem 1.2rem;white-space:nowrap;clip-path:polygon(9px 0,100% 0,100% calc(100% - 9px),calc(100% - 9px) 100%,0 100%,0 9px);transition:background-color var(--dur-micro) var(--ease-out)}
-.mast__cta:hover{background:var(--color-accent-ink)}
+/* rezerves pasvītrojums, ja nav JS; ar JS to aizstāj slīdošais indikators */
+.mast__nav:not(.has-ind) a[aria-current="page"]::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--color-accent-hi)}
+.mast__ind{position:absolute;bottom:0;left:0;height:2px;width:0;background:var(--color-accent-hi);clip-path:polygon(2px 0,100% 0,calc(100% - 2px) 100%,0 100%)}
+.mast__prog{position:absolute;left:0;bottom:0;height:2px;width:0;background:linear-gradient(90deg,var(--color-accent),var(--color-accent-hi));pointer-events:none}
+.mast__cta{font-size:0.85rem;font-weight:600;text-decoration:none;color:oklch(98% 0.005 205);background:var(--color-accent);padding:0.55rem 1.2rem;white-space:nowrap;clip-path:polygon(9px 0,100% 0,100% calc(100% - 9px),calc(100% - 9px) 100%,0 100%,0 9px);transition:background-color var(--dur-micro) var(--ease-out),transform var(--dur-micro) var(--ease-out)}
+.mast__cta:hover{background:var(--color-accent-ink);transform:translateY(-1px)}
 @media(max-width:1080px){.mast__cta{display:none}}
 @media(max-width:900px){
+  .mast{top:0.4rem;padding:0 var(--space-2xs)}
   .mast__in{flex-wrap:wrap;padding-block:var(--space-2xs)}
   .mast__right{width:100%}
   .mast__nav{gap:var(--space-sm);width:100%;overflow-x:auto;padding-bottom:0.2rem;flex-wrap:nowrap;scrollbar-width:none}
@@ -59,7 +63,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--color-focus);outlin
 }
 
 /* iekšlapu galva */
-.phead{padding-block:var(--space-2xl) var(--space-lg)}
+.phead{padding-block:calc(var(--space-3xl) + var(--space-md)) var(--space-lg)}
 .phead h1{font-size:clamp(2rem,4vw,3rem)}
 .phead p{color:var(--color-muted);max-width:40rem;margin-top:var(--space-2xs);font-size:var(--text-lg);font-weight:300}
 
